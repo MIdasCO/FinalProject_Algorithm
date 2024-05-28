@@ -42,5 +42,35 @@ namespace MovieManager
                 return $"{Title} - {Genre}, {Year}, directed by {Director}, Rating: {Rating}";
             }
         }
+        public MovieManager()
+        {
+            movies = new List<Movie>();
+        }
+ 
+        public void AddMovie(string title, string genre, int year, string director, double rating)
+        {
+            movies.Add(new Movie(title, genre, year, director, rating));
+        }
+ 
+        public void RemoveMovie(string title)
+        {
+            bool found = movies.RemoveAll(m => m.Title == title) > 0;
+            if (!found)
+            {
+                Console.WriteLine("There is no such film.");
+            }
+        }
+        public void PrintAllMovies()
+        {
+            if (movies.Count == 0)
+            {
+                Console.WriteLine("There are no films.");
+                return;
+            }
+            foreach (var movie in movies)
+            {
+                Console.WriteLine(movie);
+            }
+        }
     }
 }
