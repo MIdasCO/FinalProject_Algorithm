@@ -14,6 +14,11 @@ namespace MovieManager
             movieManager.AddMovie("The Dark Knight", "Action", 2008, "Christopher Nolan", 9.0);
             movieManager.AddMovie("Avatar", "Fantasy", 2009, "James Cameron", 7.8);
             movieManager.AddMovie("Poop", "Fantasy", 2006, "Abdel Rysbekov", 7.8);
+ 
+            Console.WriteLine("All Movies:");
+            movieManager.PrintAllMovies();
+
+            movieManager.RemoveMovie("Poop");
         }
     }
     class MovieManager
