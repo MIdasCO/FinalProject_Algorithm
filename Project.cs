@@ -77,5 +77,38 @@ namespace MovieManager
                 Console.WriteLine(movie);
             }
         }
+        public void ListMoviesByGenre(string genre)
+        {
+            bool found = false;
+            foreach (var movie in movies)
+            {
+                if (movie.Genre == genre)
+                {
+                    Console.WriteLine(movie);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("There are no films by this genre.");
+            }
+        }
+ 
+        public void ListMoviesByYear(int year)
+        {
+            bool found = false;
+            foreach (var movie in movies)
+            {
+                if (movie.Year == year)
+                {
+                    Console.WriteLine(movie);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("There are no films by this year.");
+            }
+        }
     }
 }
