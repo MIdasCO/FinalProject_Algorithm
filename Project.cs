@@ -19,6 +19,15 @@ namespace MovieManager
             movieManager.PrintAllMovies();
 
             movieManager.RemoveMovie("Poop");
+
+            Console.WriteLine("\nMovies by Genre 'Sci-Fi':");
+            movieManager.ListMoviesByGenre("Sci-Fi");
+ 
+            Console.WriteLine("\nMovies by Year 2010:");
+            movieManager.ListMoviesByYear(2010);
+
+            Console.WriteLine("All Movies:");
+            movieManager.PrintAllMovies();
         }
     }
     class MovieManager
