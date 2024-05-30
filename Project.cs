@@ -119,6 +119,30 @@ namespace MovieManager
                 Console.WriteLine("There are no films by this year.");
             }
         }
-        
+        public string GetMovieDetails(string title)
+        {
+            foreach (var movie in movies)
+            {
+                if (movie.Title == title)
+                {
+                    return movie.ToString();
+                }
+            }
+            return "Movie not found.";
+        }
+
+        public void UpdateMovieRating(string title, double newRating)
+        {
+            foreach (var movie in movies)
+            {
+                if (movie.Title == title)
+                {
+                    movie.Rating = newRating;
+                    return;
+                }
+            }
+            Console.WriteLine("Movie not found.");
+        }
     }
+}
 }
