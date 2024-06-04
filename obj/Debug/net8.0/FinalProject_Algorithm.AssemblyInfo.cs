@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinalProject_Algorithm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33f0c56b211ff5ad39bed0b4c5da8fdeeb5788f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7287ccbd7e3eff0cb32fd746c7d3012b48244319")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinalProject_Algorithm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinalProject_Algorithm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
