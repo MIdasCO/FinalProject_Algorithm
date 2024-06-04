@@ -53,7 +53,7 @@ namespace MovieManager
             public string Genre { get; }
             public int Year { get; }
             public string Director { get; }
-            public double Rating { get; set; } // Changed to set
+            public double Rating { get; set; }
  
             public Movie(string title, string genre, int year, string director, double rating)
             {
