@@ -17,19 +17,32 @@ namespace MovieManager
  
             Console.WriteLine("All Movies:");
             movieManager.PrintAllMovies();
-
-            movieManager.RemoveMovie("Poop");
-
+ 
             Console.WriteLine("\nMovies by Genre 'Sci-Fi':");
             movieManager.ListMoviesByGenre("Sci-Fi");
  
             Console.WriteLine("\nMovies by Year 2010:");
             movieManager.ListMoviesByYear(2010);
-
-            Console.WriteLine("All Movies:");
+ 
+            Console.WriteLine("\nMovies by Director 'Christopher Nolan':");
+            movieManager.ListMoviesByDirector("Christopher Nolan");
+ 
+            Console.WriteLine($"\nAverage Rating of 'Inception': {movieManager.GetAverageRating("Inception")}");
+ 
+            Console.WriteLine("\nMovie Details for 'Avatar':");
+            Console.WriteLine(movieManager.GetMovieDetails("Avatar"));
+ 
+            movieManager.UpdateMovieRating("Avatar", 8.0);
+            Console.WriteLine("\nUpdated Rating for 'Avatar':");
+            Console.WriteLine(movieManager.GetMovieDetails("Avatar"));
+ 
+            movieManager.RemoveMovie("Poop");
+ 
+            Console.WriteLine("\nUpdated Movie List:");
             movieManager.PrintAllMovies();
         }
     }
+ 
     class MovieManager
     {
         private List<Movie> movies;
@@ -40,7 +53,7 @@ namespace MovieManager
             public string Genre { get; }
             public int Year { get; }
             public string Director { get; }
-            public double Rating { get; }
+            public double Rating { get; set; } // Changed to set
  
             public Movie(string title, string genre, int year, string director, double rating)
             {
@@ -56,6 +69,7 @@ namespace MovieManager
                 return $"{Title} - {Genre}, {Year}, directed by {Director}, Rating: {Rating}";
             }
         }
+ 
         public MovieManager()
         {
             movies = new List<Movie>();
@@ -74,6 +88,7 @@ namespace MovieManager
                 Console.WriteLine("There is no such film.");
             }
         }
+ 
         public void PrintAllMovies()
         {
             if (movies.Count == 0)
@@ -86,6 +101,7 @@ namespace MovieManager
                 Console.WriteLine(movie);
             }
         }
+ 
         public void ListMoviesByGenre(string genre)
         {
             bool found = false;
@@ -119,6 +135,47 @@ namespace MovieManager
                 Console.WriteLine("There are no films by this year.");
             }
         }
+ 
+        public void ListMoviesByDirector(string director)
+        {
+            bool found = false;
+            foreach (var movie in movies)
+            {
+                if (movie.Director == director)
+                {
+                    Console.WriteLine(movie);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("There are no films by this director.");
+            }
+        }
+ 
+        public double GetAverageRating(string title)
+        {
+            double totalRating = 0;
+            int count = 0;
+            foreach (var movie in movies)
+            {
+                if (movie.Title == title)
+                {
+                    totalRating += movie.Rating;
+                    count++;
+                }
+            }
+ 
+            if (count > 0)
+            {
+                return totalRating / count;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+ 
         public string GetMovieDetails(string title)
         {
             foreach (var movie in movies)
@@ -130,7 +187,7 @@ namespace MovieManager
             }
             return "Movie not found.";
         }
-
+ 
         public void UpdateMovieRating(string title, double newRating)
         {
             foreach (var movie in movies)
@@ -144,5 +201,4 @@ namespace MovieManager
             Console.WriteLine("Movie not found.");
         }
     }
-}
 }
