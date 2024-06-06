@@ -1,2 +1,2 @@
 # FinalProject_Algorithm
-наш проект это Movie Base
+наш проект это Movie Base, реализованный с помощью Queue
